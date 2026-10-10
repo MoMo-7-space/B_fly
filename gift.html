@@ -3887,9 +3887,17 @@ footer .footer-bottom span:first-child{
 
     
     function decodeGiftData(){
-      const m=location.hash.match(/^#gift=(.+)$/); if(!m) return null;
+      // Read the gift payload from the URL hash, even if it contains URL-safe Base64 characters.
+      const hash = window.location.hash || '';
+      const m = hash.match(/^#gift=([^&]+)$/);
+      if (!m) return null;
       try {
-        return JSON.parse(decodeURIComponent(escape(atob(m[1]))));
+        let encoded = m[1].replace(/-/g, '+').replace(/_/g, '/');
+        while (encoded.length % 4) encoded += '=';
+        const binary = atob(encoded);
+        const bytes = Uint8Array.from(binary, ch => ch.charCodeAt(0));
+        const decoded = new TextDecoder('utf-8').decode(bytes);
+        return JSON.parse(decoded);
       } catch(e) {
         console.error('Invalid Gift Link:', e);
         return null;
@@ -4539,16 +4547,25 @@ function initReceiverScratch(){
 
     window.selectedMusic = { title: document.getElementById('board-song-title')?.innerText || 'Happy Birthday', artist: document.getElementById('board-song-artist')?.innerText || 'Acoustic', src: document.getElementById('main-audio-player')?.getAttribute('src') || 'music/song1.mp3' };
 
-window.onload = function() {
-      createFloatingLogos();
-      const gift=decodeGiftData();
-      if(gift) enterRecipientMode(gift);
-    };
+function initializeGiftPage(){
+      if (typeof createFloatingLogos === 'function') createFloatingLogos();
+      const gift = decodeGiftData();
+      if (gift && typeof enterRecipientMode === 'function') {
+        enterRecipientMode(gift);
+      }
+    }
 
-    // Handle Gift Links opened in the same page/tab (the URL hash changes without reloading).
+    // Initialize reliably whether this script runs before or after DOMContentLoaded.
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeGiftPage, { once: true });
+    } else {
+      initializeGiftPage();
+    }
+
+    // Re-render recipient view if the gift hash changes in the same tab.
     window.addEventListener('hashchange', function() {
       const gift = decodeGiftData();
-      if (gift) enterRecipientMode(gift);
+      if (gift && typeof enterRecipientMode === 'function') enterRecipientMode(gift);
     });
   </script>
 
