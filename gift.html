@@ -3097,7 +3097,13 @@ footer .footer-bottom span:first-child{
     function backToGiftEditor(){
       const recipient = document.getElementById('recipient-mode');
       if(recipient) recipient.remove();
-      document.querySelectorAll('body > section, body > header').forEach(x=>x.style.display='');
+      // Restore only elements hidden by recipient mode, preserving original layout styles.
+      document.querySelectorAll('body > [data-recipient-hidden="1"]').forEach(el=>{
+        el.style.display = el.dataset.recipientPreviousDisplay || '';
+        delete el.dataset.recipientHidden;
+        delete el.dataset.recipientPreviousDisplay;
+      });
+      document.body.classList.remove('recipient-view-active');
       document.querySelectorAll('.modal-overlay').forEach(x=>x.style.display='none');
       const firstSection = document.querySelector('main section') || document.querySelector('section');
       if(firstSection){
@@ -3890,7 +3896,7 @@ footer .footer-bottom span:first-child{
       // Accept standard Base64 gift links and URL-safe Base64 links.
       try {
         const hash = String(window.location.hash || '');
-        const match = hash.match(/^#gift=([^&]+)$/i);
+        const match = hash.match(/^#gift=([^&]+)/i);
         if (!match || !match[1]) return null;
         let encoded = decodeURIComponent(match[1]).replace(/-/g, '+').replace(/_/g, '/').replace(/\s/g, '');
         while (encoded.length % 4) encoded += '=';
@@ -3912,13 +3918,18 @@ footer .footer-bottom span:first-child{
     function enterRecipientMode(g, previewMode=false){
       const old=document.getElementById('recipient-mode');
       if(old) old.remove();
-      const editor=document.querySelector('main') || document.body;
-      // Hide all gift-editor UI while the recipient view is active.
-      const allSections=document.querySelectorAll('body > section, body > header, body > main, body > nav, body > footer');
-      allSections.forEach(x=>x.style.display='none');
-      document.querySelectorAll('.modal-overlay').forEach(x=>x.style.display='none');
+      // Hide every visible direct child of body except styles/scripts and the recipient view.
+      // This prevents the editor/navbar/preview UI from appearing behind the recipient page.
       document.body.classList.add('recipient-view-active');
       const wrap=document.createElement('div'); wrap.id='recipient-mode';
+      Array.from(document.body.children).forEach(el=>{
+        if(el===wrap || ['SCRIPT','STYLE','LINK','META'].includes(el.tagName) || el.id==='recipient-mode') return;
+        if(el.dataset.recipientHidden==='1') return;
+        el.dataset.recipientPreviousDisplay = el.style.display || '';
+        el.dataset.recipientHidden = '1';
+        el.style.display='none';
+      });
+      document.querySelectorAll('.modal-overlay').forEach(x=>x.style.display='none');
       wrap.style='min-height:100vh;padding:22px;background:linear-gradient(135deg,#fff8f5,#F7F3FF);display:flex;align-items:center;justify-content:center';
       const hasGame = !!g.game;
       if(hasGame) applyMiniGameTheme(g);
