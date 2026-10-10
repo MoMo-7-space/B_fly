@@ -3887,19 +3887,25 @@ footer .footer-bottom span:first-child{
 
     
     function decodeGiftData(){
-      // Read the gift payload from the URL hash, even if it contains URL-safe Base64 characters.
-      const hash = window.location.hash || '';
-      const m = hash.match(/^#gift=([^&]+)$/);
-      if (!m) return null;
+      // Accept standard Base64 gift links and URL-safe Base64 links.
       try {
-        let encoded = m[1].replace(/-/g, '+').replace(/_/g, '/');
+        const hash = String(window.location.hash || '');
+        const match = hash.match(/^#gift=([^&]+)$/i);
+        if (!match || !match[1]) return null;
+        let encoded = decodeURIComponent(match[1]).replace(/-/g, '+').replace(/_/g, '/').replace(/\s/g, '');
         while (encoded.length % 4) encoded += '=';
         const binary = atob(encoded);
-        const bytes = Uint8Array.from(binary, ch => ch.charCodeAt(0));
-        const decoded = new TextDecoder('utf-8').decode(bytes);
-        return JSON.parse(decoded);
+        let decoded;
+        if (typeof TextDecoder !== 'undefined') {
+          const bytes = Uint8Array.from(binary, ch => ch.charCodeAt(0));
+          decoded = new TextDecoder('utf-8').decode(bytes);
+        } else {
+          decoded = decodeURIComponent(escape(binary));
+        }
+        const gift = JSON.parse(decoded);
+        return gift && typeof gift === 'object' ? gift : null;
       } catch(e) {
-        console.error('Invalid Gift Link:', e);
+        console.error('Invalid Gift Link payload:', e);
         return null;
       }
     }
@@ -3907,9 +3913,11 @@ footer .footer-bottom span:first-child{
       const old=document.getElementById('recipient-mode');
       if(old) old.remove();
       const editor=document.querySelector('main') || document.body;
-      const allSections=document.querySelectorAll('body > section, body > header');
+      // Hide all gift-editor UI while the recipient view is active.
+      const allSections=document.querySelectorAll('body > section, body > header, body > main, body > nav, body > footer');
       allSections.forEach(x=>x.style.display='none');
       document.querySelectorAll('.modal-overlay').forEach(x=>x.style.display='none');
+      document.body.classList.add('recipient-view-active');
       const wrap=document.createElement('div'); wrap.id='recipient-mode';
       wrap.style='min-height:100vh;padding:22px;background:linear-gradient(135deg,#fff8f5,#F7F3FF);display:flex;align-items:center;justify-content:center';
       const hasGame = !!g.game;
@@ -4555,18 +4563,15 @@ function initializeGiftPage(){
       }
     }
 
-    // Initialize reliably whether this script runs before or after DOMContentLoaded.
+    // Run after the page is parsed, and also when a shared link is restored from browser history.
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initializeGiftPage, { once: true });
     } else {
       initializeGiftPage();
     }
-
-    // Re-render recipient view if the gift hash changes in the same tab.
-    window.addEventListener('hashchange', function() {
-      const gift = decodeGiftData();
-      if (gift && typeof enterRecipientMode === 'function') enterRecipientMode(gift);
-    });
+    window.addEventListener('load', initializeGiftPage, { once: true });
+    window.addEventListener('pageshow', initializeGiftPage);
+    window.addEventListener('hashchange', initializeGiftPage);
   </script>
 
 <style id="mini-game-theme-sync">
