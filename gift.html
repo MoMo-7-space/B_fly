@@ -3586,61 +3586,83 @@ footer .footer-bottom span:first-child{
       copyGiftLink(true);
     }
 
-    // Shorten only when the user requests it. is.gd supports JSONP, so this works
-    // from the static GitHub/Render site without adding a backend or API key.
+    // Shorten only when the user requests it. Try is.gd first, then v.gd.
+    // Both support JSONP so this works from the static Render/GitHub site.
     function shortenGiftLink(){
       const input = document.getElementById('generated-gift-link');
       const button = document.getElementById('shorten-gift-link-btn');
       const status = document.getElementById('shorten-gift-link-status');
       if (!input || !button || !status) return;
-      const originalUrl = input.value.trim();
+      const originalUrl = (window._lastGiftShare?.originalShareUrl || input.value).trim();
       if (!originalUrl) return;
-      if (/^https?:\/\/is\.gd\//i.test(originalUrl) || /^https?:\/\/v\.gd\//i.test(originalUrl)) {
+      if (/^https?:\/\/(is\.gd|v\.gd)\//i.test(input.value.trim())) {
         status.textContent = 'ဒီ Link က တိုပြီးသားပါ။';
         return;
       }
       button.disabled = true;
       button.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ခဏစောင့်ပါ…';
-      status.textContent = 'Link ကို အခမဲ့ တိုအောင် ပြောင်းနေပါတယ်…';
+      status.textContent = 'အခမဲ့ Link Shortener နှစ်ခုကို စမ်းသပ်ချိတ်ဆက်နေပါတယ်…';
+
       const callbackName = '__butterflyShortLink_' + Date.now() + '_' + Math.random().toString(36).slice(2);
-      const script = document.createElement('script');
+      const services = ['https://is.gd/create.php', 'https://v.gd/create.php'];
+      let serviceIndex = 0;
+      let currentScript = null;
+      let timeoutId = null;
       let finished = false;
-      const cleanup = () => {
-        if (finished) return;
+
+      const cleanupRequest = () => {
+        if (timeoutId) window.clearTimeout(timeoutId);
+        if (currentScript && currentScript.parentNode) currentScript.parentNode.removeChild(currentScript);
+        currentScript = null;
+      };
+      const finish = () => {
         finished = true;
+        cleanupRequest();
         try { delete window[callbackName]; } catch (_) { window[callbackName] = undefined; }
-        if (script.parentNode) script.parentNode.removeChild(script);
         button.disabled = false;
         button.innerHTML = '<i class="fa-solid fa-link"></i> Link ကို တိုအောင်လုပ်မယ် (Free)';
       };
-      const timeout = window.setTimeout(() => {
-        cleanup();
-        status.textContent = 'Link တိုအောင်လုပ်မရသေးပါ။ Internet ကိုစစ်ပြီး ထပ်စမ်းပါ။ မူရင်း Link မပျောက်ပါဘူး။';
-      }, 15000);
+      const failAll = (reason) => {
+        if (finished) return;
+        finish();
+        status.textContent = reason || 'Link တိုအောင်လုပ်မရသေးပါ။ Internet ကိုစစ်ပြီး ထပ်စမ်းပါ။ မူရင်း Link မပျောက်ပါဘူး။';
+      };
+      const tryNextService = () => {
+        if (finished) return;
+        cleanupRequest();
+        if (serviceIndex >= services.length) {
+          failAll('is.gd နဲ့ v.gd နှစ်ခုလုံးကို ချိတ်ဆက်မရပါ။ Internet ကိုစစ်ပြီး ထပ်စမ်းပါ။ မူရင်း Link မပျောက်ပါဘူး။');
+          return;
+        }
+        const service = services[serviceIndex++];
+        currentScript = document.createElement('script');
+        currentScript.async = true;
+        currentScript.onerror = tryNextService;
+        timeoutId = window.setTimeout(tryNextService, 9000);
+        currentScript.src = service + '?format=json&callback=' + encodeURIComponent(callbackName) + '&url=' + encodeURIComponent(originalUrl);
+        document.head.appendChild(currentScript);
+      };
       window[callbackName] = (result) => {
         if (finished) return;
-        window.clearTimeout(timeout);
         const shortUrl = result && result.shorturl;
         if (typeof shortUrl === 'string' && /^https?:\/\/(is\.gd|v\.gd)\//i.test(shortUrl)) {
+          finish();
           input.value = shortUrl;
           window._lastGiftShare = { shareUrl: shortUrl, originalShareUrl: originalUrl };
           status.textContent = 'Gift Link ကို တိုအောင် ပြောင်းပြီးပါပြီ။ အခု Copy သို့မဟုတ် Share လုပ်နိုင်ပါပြီ။';
-          cleanup();
           copyGiftLink(true);
+          return;
+        }
+        const err = result && result.errormessage;
+        const code = result && result.errorcode;
+        if (serviceIndex < services.length) {
+          tryNextService();
         } else {
-          const message = result && result.errormessage ? result.errormessage : 'Shortener က Link ကို လက်မခံပါ။';
-          status.textContent = message + ' မူရင်း Link ကို ဆက်သုံးနိုင်ပါတယ်။';
-          cleanup();
+          const detail = err ? String(err) : (code ? 'Error code ' + code : 'Shortener က Link ကို လက်မခံပါ။');
+          failAll(detail + ' မူရင်း Link ကို ဆက်သုံးနိုင်ပါတယ်။');
         }
       };
-      script.onerror = () => {
-        if (finished) return;
-        window.clearTimeout(timeout);
-        cleanup();
-        status.textContent = 'Shortener ဝန်ဆောင်မှုကို ချိတ်ဆက်မရပါ။ မူရင်း Link မပျောက်ပါဘူး။';
-      };
-      script.src = 'https://is.gd/create.php?format=json&callback=' + encodeURIComponent(callbackName) + '&url=' + encodeURIComponent(originalUrl);
-      document.head.appendChild(script);
+      tryNextService();
     }
 
     async function copyGiftLink(silent=false){
