@@ -4555,15 +4555,30 @@ function initReceiverScratch(){
 
     window.selectedMusic = { title: document.getElementById('board-song-title')?.innerText || 'Happy Birthday', artist: document.getElementById('board-song-artist')?.innerText || 'Acoustic', src: document.getElementById('main-audio-player')?.getAttribute('src') || 'music/song1.mp3' };
 
-function initializeGiftPage(){
-      if (typeof createFloatingLogos === 'function') createFloatingLogos();
-      const gift = decodeGiftData();
-      if (gift && typeof enterRecipientMode === 'function') {
-        enterRecipientMode(gift);
+let recipientInitializationDone = false;
+    function initializeGiftPage(){
+      // Process shared Gift Links first. Decorative editor effects must never
+      // prevent the recipient page from opening.
+      try {
+        const gift = decodeGiftData();
+        if (gift && typeof enterRecipientMode === 'function') {
+          if (!recipientInitializationDone || !document.getElementById('recipient-mode')) {
+            enterRecipientMode(gift);
+            recipientInitializationDone = true;
+          }
+          return;
+        }
+      } catch (err) {
+        console.error('Could not open shared gift:', err);
+      }
+      try {
+        if (typeof createFloatingLogos === 'function') createFloatingLogos();
+      } catch (err) {
+        console.warn('Floating logo effect skipped:', err);
       }
     }
 
-    // Run after the page is parsed, and also when a shared link is restored from browser history.
+    // Run after parsing, and retry when a shared link is restored from browser history.
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initializeGiftPage, { once: true });
     } else {
@@ -4571,7 +4586,7 @@ function initializeGiftPage(){
     }
     window.addEventListener('load', initializeGiftPage, { once: true });
     window.addEventListener('pageshow', initializeGiftPage);
-    window.addEventListener('hashchange', initializeGiftPage);
+    window.addEventListener('hashchange', function(){ recipientInitializationDone = false; initializeGiftPage(); });
   </script>
 
 <style id="mini-game-theme-sync">
