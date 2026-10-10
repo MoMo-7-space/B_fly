@@ -3095,9 +3095,19 @@ footer .footer-bottom span:first-child{
 
 
     function backToGiftEditor(){
+      // Stop the shared-link recipient mode from immediately reopening.
+      // The #gift=... hash is only for the recipient link, not the editor view.
+      try {
+        if (window.location.hash.startsWith('#gift=')) {
+          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      } catch (err) {
+        console.warn('Could not clear Gift Link hash:', err);
+      }
+      recipientInitializationDone = false;
       const recipient = document.getElementById('recipient-mode');
       if(recipient) recipient.remove();
-      // Restore only elements hidden by recipient mode, preserving original layout styles.
+      // Restore the editor elements hidden by recipient mode, preserving layout styles.
       document.querySelectorAll('body > [data-recipient-hidden="1"]').forEach(el=>{
         el.style.display = el.dataset.recipientPreviousDisplay || '';
         delete el.dataset.recipientHidden;
