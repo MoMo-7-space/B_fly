@@ -2975,811 +2975,6 @@ footer .footer-bottom span:first-child{
     </div>
   </section>
 
-  <!-- SECTION 5: BACKGROUND MUSIC -->
-  <section class="section-card">
-    <div class="section-title"><i class="fa-solid fa-music"></i>A Song That Feels Like You</div>
-
-    <div class="music-player-card">
-      <div class="vinyl-wrapper">
-        <div class="vinyl-record" id="vinyl-record">
-          <div class="vinyl-center-label" id="vinyl-label" style="background-image: url('https://picsum.photos/200/200?random=10');">
-            <div class="vinyl-center-hole"></div>
-          </div>
-        </div>
-      </div>
-
-      <h3 id="current-song-title" style="font-size:1.05rem; color:var(--primary-color);">စိန်ပန်းပြာ</h3>
-      <p id="current-song-artist" style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">အောင်မြင့်မြတ်၊ မေဆွိ</p>
-
-      <button class="play-btn" onclick="togglePlayMusic()"><i class="fa-solid fa-play" id="play-icon"></i></button>
-      <audio id="main-audio-player" src="mp3/စိန်ပန်းပြာ_-_အောင်မြင့်မြတ်၊_မေဆွိ(256k).mp3" crossorigin="anonymous" onended="onAudioEnded()"></audio>
-    </div>
-
-    <div class="carousel-container">
-      <button class="scroll-btn left" onclick="scrollSlider('music-slider', -150)"><i class="fa-solid fa-chevron-left"></i></button>
-      <div class="horizontal-slider" id="music-slider">
-        
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', 'စိန်ပန်းပြာ', 'အောင်မြင့်မြတ်၊ မေဆွိ', 'mp3/စိန်ပန်းပြာ_-_အောင်မြင့်မြတ်၊_မေဆွိ(256k).mp3', 'Sphoto/1.jpg')">
-          
-          <img src="Sphoto/1.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title">စိန်ပန်းပြာ</div>
-          <div class="music-card-artist">အောင်မြင့်မြတ်၊ မေဆွိ</div>
-        </div>
-
-        <div class="music-card" onclick="handleItemSelection(this, 'music', 'ဆေးလိပ်နဲ့မီးခြစ်', ' May', 'mp3/May_-_ဆေးလိပ်နဲ့မီးခြစ်_[Official_Music_Video](256k).mp3', 'Sphoto/2.jpg')">
-          
-          <img src="Sphoto/2.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဆေးလိပ်နဲ့မီးခြစ်</div>
-          <div class="music-card-artist">May</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' သေရာပါ', ' Su Hlaing, ChanMyae MgCho', 'mp3/Su_Hlaing,_ChanMyae_MgCho_-_သေရာပါ__Official_Music_Video_(256k).mp3', 'Sphoto/3.jpg')">
-          <img src="Sphoto/3.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> သေရာပါ</div>
-          <div class="music-card-artist">Su Hlaing, ChanMyae MgCho</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Love Story', ' Taylor Swift', 'mp3/Taylor_Swift_-_Love_Story(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Love Story</div>
-          <div class="music-card-artist">Taylor Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဓလေ့', ' Project_K', 'mp3/ဓလေ့___Da_Lae__Project_K__(0).mp3', 'Sphoto/5.jpg')">
-          <img src="Sphoto/5.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဓလေ့</div>
-          <div class="music-card-artist">Project K</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', 'Stay with me', ' Chanyeol,Punch', 'mp3/Goblin_도깨비_OST__Chanyeol,_Punch__-_Stay_with_me_MV(256k).mp3', 'Sphoto/6.jpg')">
-          <img src="Sphoto/6.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title">Stay with me</div>
-          <div class="music-card-artist">Chanyeol,Punch</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဝေးပေမယ့် နွေးတယ်', ' Titans', 'mp3/_𝐓𝐈𝐓𝐀𝐍𝐒_-_ဝေးပေမယ့်_နွေးတယ်__[𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋_𝐌𝐕](256k).mp3', 'Sphoto/7.jpg')">
-          <img src="Sphoto/7.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title">ဝေးပေမယ့် နွေးတယ်</div>
-          <div class="music-card-artist">Titans</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' သူငယ်ချင်းထက်ပိုတယ်', ' Pan Hsu', 'mp3/🎶သူငယ်ချင်း_ထက်ပိုတယ်...သူသူငယ်ချင်းထက်ပိုလည်း...နင်အနားနားရှိနေရယုံ_ငါကျေနပ်ပါ(256k).mp3', 'Sphoto/8.jpg')">
-          <img src="Sphoto/8.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> သူငယ်ချင်းထက်ပိုတယ်</div>
-          <div class="music-card-artist">Pan Hsu</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Less than a Lover', ' Jennie', 'mp3/01 - Less than a Lover.mp3', 'Sphoto/9.jpg')">
-          <img src="Sphoto/9.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Less than a Lover</div>
-          <div class="music-card-artist">Jennie</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Ocean Eyes', ' Melody', 'mp3/20.-Ocean Eyes.flac', 'Sphoto/10.jpg')">
-          <img src="Sphoto/10.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Ocean Eyes</div>
-          <div class="music-card-artist">Melody</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Rewrite The Stars', ' Anne-Marie,JamesArthur', 'mp3/Anne-Marie___James_Arthur_-_Rewrite_The_Stars_[from_The_Greatest_Showman__Reimagined](256k).mp3', 'Sphoto/11.jpg')">
-          <img src="Sphoto/11.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Rewrite The Stars</div>
-          <div class="music-card-artist">Anne-Marie,JamesArthur</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Say Goodbye', ' AR-T,ft.AmeraHpone', 'mp3/AR-T_ft._Amera_Hpone_-_Say_Goodbye__Official_Music_Video_(256k).mp3', 'Sphoto/12.jpg')">
-          <img src="Sphoto/12.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Say Goodbye</div>
-          <div class="music-card-artist">AR-T,ft.AmeraHpone</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' SomedaySayYes', ' Melody', 'mp3/b800fd73_22cf_491e_bbc5_2f6277a70626Someday_Say_Yes_Ost_140_a.m4a', 'Sphoto/13.jpg')">
-          <img src="Sphoto/13.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> SomedaySayYes</div>
-          <div class="music-card-artist">Melody</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' BabyCalmDown', ' SelenaGomez,Rema', 'mp3/Baby_Calm_Down__FULL_VIDEO_SONG____Selena_Gomez___Rema_Official_Music_Video_2023___HD_4K(256k).mp3', 'Sphoto/14.jpg')">
-          <img src="Sphoto/14.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> BabyCalmDown</div>
-          <div class="music-card-artist">SelenaGomez,Rema</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' CHOOM', ' BABYMONSTER', 'mp3/BABYMONSTER_-_CHOOM__Lyrics_(0).mp3', 'Sphoto/15.jpg')">
-          <img src="Sphoto/15.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> CHOOM</div>
-          <div class="music-card-artist">BABYMONSTER</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Tanrak', ' Gemini', 'mp3/gemini_aethnrak_tanrak_ephlngprak_bchiiriis_ticket_to_heaven_edk.m4a', 'Sphoto/16.jpg')">
-          <img src="Sphoto/16.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Tanrak</div>
-          <div class="music-card-artist">Gemini</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဖြတ်မျဥ်း', ' GRYLR', 'mp3/GRYLR_-_ဖြတ်မျဥ်း___Lyric_Video__(256k).mp3', 'Sphoto/17.jpg')">
-          <img src="Sphoto/17.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဖြတ်မျဥ်း</div>
-          <div class="music-card-artist">GRYLR</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' DanceNoMore', ' HarryStyles', 'mp3/Harry_Styles_-_Dance_No_More__Official_Video_(0).mp3', 'Sphoto/18.jpg')">
-          <img src="Sphoto/18.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> DanceNoMore</div>
-          <div class="music-card-artist">HarryStyles</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' အမေ့အိမ်', ' HtooEinThin', 'mp3/Htoo_Ein_Thin_-_အမေ့အိမ်(256k).mp3', 'Sphoto/19.jpg')">
-          <img src="Sphoto/19.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> အမေ့အိမ်</div>
-          <div class="music-card-artist">HtooEinThin</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Golden', ' HUNTRIX', 'mp3/HUNTRIX_-_Golden__Lyrics__KPop_Demon_Hunters(0).mp3', 'Sphoto/20.jpg')">
-          <img src="Sphoto/20.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Golden</div>
-          <div class="music-card-artist">HUNTRIX</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Its Me', ' ILLIT', 'mp3/ILLIT_-_It_s_Me__Lyrics_(0).mp3', 'Sphoto/21.jpg')">
-          <img src="Sphoto/21.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> It's Me</div>
-          <div class="music-card-artist">ILLIT</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ရင်ထဲမှာပဲ့ထားပါ့မယ်', ' Irene', 'mp3/Irene_Zin_Mar_Myint_-_ရင်ထဲမှာပဲ့ထားပါ့မယ်__lyrics_(256k).mp3', 'Sphoto/22.jpg')">
-          <img src="Sphoto/22.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ရင်ထဲမှာပဲ့ထားပါ့မယ်</div>
-          <div class="music-card-artist">Irene</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Its_4AM', ' သိပ္ပံထွန်း', 'mp3/It’s_4AM-သိပ္ပံထွန်း_Official_lyric_video_(256k).mp3', 'Sphoto/23.jpg')">
-          <img src="Sphoto/23.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Its_4AM</div>
-          <div class="music-card-artist">သိပ္ပံထွန်း</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Love wins all', ' IU', 'mp3/IU__Love_wins_all__MV(0).mp3', 'Sphoto/24.jpg')">
-          <img src="Sphoto/24.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Love wins all</div>
-          <div class="music-card-artist">IU</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Why Dont You Stay', ' Jeff_Satur', 'mp3/Jeff_Satur_Why_Don_t_You_Stay_WorldTour_Ver_Official_MVMP3_70K.mp3', 'Sphoto/25.jpg')">
-          <img src="Sphoto/25.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Why Dont You Stay</div>
-          <div class="music-card-artist">Jeff_Satur</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' like_JENNIE', ' JENNIE', 'mp3/JENNIE_-_like_JENNIE__Official_Video_(0).mp3', 'Sphoto/26.jpg')">
-          <img src="Sphoto/26.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> like_JENNIE</div>
-          <div class="music-card-artist">JENNIE</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Baby', ' Justin_ft._Ludacris', 'mp3/Justin_Bieber_-_Baby_ft._Ludacris(256k).mp3', 'Sphoto/27.jpg')">
-          <img src="Sphoto/27.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Baby</div>
-          <div class="music-card-artist">Justin_ft._Ludacris</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' YUKON', ' Justin_Bieber', 'mp3/Justin_Bieber_-_YUKON(0).mp3', 'Sphoto/28.jpg')">
-          <img src="Sphoto/28.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> YUKON</div>
-          <div class="music-card-artist">Justin_Bieber</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Debut', ' KATSEYE', 'mp3/KATSEYE_-_Debut__Lyrics_(0).mp3', 'Sphoto/29.jpg')">
-          <img src="Sphoto/29.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Debut</div>
-          <div class="music-card-artist">KATSEYE</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Gameboy', ' KATSEYE', 'mp3/KATSEYE_-_Gameboy__Lyrics_(0).mp3', 'Sphoto/29.jpg')">
-          <img src="Sphoto/29.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Gameboy</div>
-          <div class="music-card-artist">KATSEYE</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Hootie_Frutt', ' KATSEYE', 'mp3/KATSEYE_-_Hootie_Frutti__Live_from_Saturday_Night_Live_(256k).mp3', 'Sphoto/29.jpg')">
-          <img src="Sphoto/29.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Hootie_Frutt</div>
-          <div class="music-card-artist">KATSEYE</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Touch', ' KATSEYE', 'mp3/KATSEYE_-_Touch__Lyrics_(0).mp3', 'Sphoto/29.jpg')">
-          <img src="Sphoto/29.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Touch</div>
-          <div class="music-card-artist">KATSEYE</div>
-        </div>
-
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' DieWithASmile', ' LadyGaga,Bruno', 'mp3/Lady_Gaga,_Bruno_Mars_-_Die_With_A_Smile__Official_Music_Video_(256k).mp3', 'Sphoto/30.jpg')">
-          <img src="Sphoto/30.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> DieWithASmile</div>
-          <div class="music-card-artist">LadyGaga,Bruno</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မလွမ်းရဲသေးဘူးမောင်ရယ်', ' Lဆိုင်းဇီ', 'mp3/Lဆိုင်းဇီ_-_မလွမ်းရဲသေးဘူးမောင်ရယ်_Lyrics(0).mp3', 'Sphoto/31.jpg')">
-          <img src="Sphoto/31.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မလွမ်းရဲသေးဘူးမောင်ရယ်</div>
-          <div class="music-card-artist">Lဆိုင်းဇီ</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Your_Home', ' MAY,Ft.PoneYape', 'mp3/MAY_-_အိမ်ပြန်ချင်ပြီအခု...__Your_Home__Ft._@PoneYape_[Official_Music_Video](256k).mp3', 'Sphoto/32.jpg')">
-          <img src="Sphoto/32.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Your_Home</div>
-          <div class="music-card-artist">MAY,Ft.PoneYape</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဆန့်ကျင်ဘက်အရပ်', ' MiSandi,Ft.WyneSu', 'mp3/Mi_Sandi___Ft.Wyne_Su_Khine_Thein_-_ဆန့်ကျင်ဘက်အရပ်__Audio_(256k).mp3', 'Sphoto/33.jpg')">
-          <img src="Sphoto/33.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဆန့်ကျင်ဘက်အရပ်</div>
-          <div class="music-card-artist">MiSandi,Ft.WyneSu</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ကြေကွဲမိုးတိမ်', ' Mi_Sandi', 'mp3/Mi_Sandi_-_ကြေကွဲမိုးတိမ်__Official_Music_Video_(0).mp3', 'Sphoto/34.jpg')">
-          <img src="Sphoto/34.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ကြေကွဲမိုးတိမ်</div>
-          <div class="music-card-artist">Mi_Sandi</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' True Love', ' NuNew', 'mp3/NuNew -   True Love  .mp3', 'Sphoto/35.jpg')">
-          <img src="Sphoto/35.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> True Love</div>
-          <div class="music-card-artist">NuNew</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' သိနှင့်ပြီးသား', ' OakSoeKhant', 'mp3/Oak_Soe_Khant_-_သိနှင့်ပြီးသား_[_Official_Music_Video_](256k).mp3', 'Sphoto/36.jpg')">
-          <img src="Sphoto/36.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> သိနှင့်ပြီးသား</div>
-          <div class="music-card-artist">OakSoeKhant</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Stupid Song', ' Olivia_Rodrigo', 'mp3/Olivia_Rodrigo_-_stupid_song__Official_Music_Video_(0).mp3', 'hSphoto/37.jpg')">
-          <img src="Sphoto/37.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Stupid Song</div>
-          <div class="music-card-artist">Olivia_Rodrigo</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' The cure', ' Olivia_Rodrigo', 'mp3/Olivia_Rodrigo_-_the_cure__Official_Music_Video_(0).mp3', 'Sphoto/38.jpg')">
-          <img src="Sphoto/38.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> The cure</div>
-          <div class="music-card-artist">Olivia_Rodrigo</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Fall in love', ' Queens', 'mp3/𝐐𝐔𝐄𝐄𝐍𝐒_-__𝐅𝐀𝐋𝐋_𝐈𝐍_𝐋𝐎𝐕𝐄___OFFICIAL_MV_(256k).mp3', 'Sphoto/39.jpg')">
-          <img src="Sphoto/39.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Fall in love</div>
-          <div class="music-card-artist">Queens</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ပျိုတို့ရွာ', ' Queens', 'mp3/QUEENS_-__ပျိုတို့ရွာ___Official_Music_Video_(256k).mp3', 'Sphoto/39.jpg')">
-          <img src="Sphoto/39.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ပျိုတို့ရွာ</div>
-          <div class="music-card-artist">Queens</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' အချစ်ခံဝန်', ' Queens', 'mp3/𝐐𝐔𝐄𝐄𝐍𝐒_-__အချစ်ခံဝန်___OFFICIAL_MV_(256k).mp3', 'Sphoto/39.jpg')">
-          <img src="Sphoto/39.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> အချစ်ခံဝန်</div>
-          <div class="music-card-artist">Queens</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' StayALittleLonger', ' ROSÉ', 'mp3/ROSÉ - stay a little longer.flac', 'Sphoto/40.jpg')">
-          <img src="Sphoto/40.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> StayALittleLonger</div>
-          <div class="music-card-artist">ROSÉ</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' APT', ' ROSÉ,Bruno', 'mp3/ROSÉ___Bruno_Mars_-_APT.__Official_Music_Video_(256k).mp3', 'Sphoto/41.jpg')">
-          <img src="Sphoto/41.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> APT</div>
-          <div class="music-card-artist">ROSÉ,Bruno</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဝေးသွားတဲ့အခိုက်အတန့်', ' SanHtateHtarOo', 'mp3/San_Htate_Htar_Oo_-_ဝေးသွားတဲ့အခိုက်အတန့်__Official_Lyric_Video_(256k).mp3', 'Sphoto/42.jpg')">
-          <img src="Sphoto/42.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဝေးသွားတဲ့အခိုက်အတန့်</div>
-          <div class="music-card-artist">SanHtateHtarOo</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မောင့်အသဲ', ' SANNY', 'mp3/SANNY_-_မောင့်အသဲ(0).mp3', 'Sphoto/43.jpg')">
-          <img src="Sphoto/43.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မောင့်အသဲ</div>
-          <div class="music-card-artist">SANNY</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' All I Need is You', ' SHINE,LuHpring', 'mp3/SHINE_,_Lu_Hpring_-_All_I_Need_is_You_[Official_MV](0).mp3', 'Sphoto/44.jpg')">
-          <img src="Sphoto/44.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> All I Need is You</div>
-          <div class="music-card-artist">SHINE,LuHpring</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' My Love', ' Taeyeon,LeeSeungChul', 'mp3/Taeyeon___Lee_Seung_Chul-My_Love__duet_ver_mmsub(256k).mp3', 'Sphoto/45.jpg')">
-          <img src="Sphoto/45.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> My Love</div>
-          <div class="music-card-artist">Taeyeon,LeeSeungChul</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Babylon', ' Taylor_Swift', 'mp3/Taylor_Swift_-_Babylon__Official_Lyric_Video_(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Babylon</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Back_To_December', ' Taylor_Swift', 'mp3/Taylor_Swift_-_Back_To_December(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Back_To_December</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Blank_Space', ' Taylor_Swift', 'mp3/Taylor_Swift_-_Blank_Space(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Blank_Space</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Cleveland!', ' Taylor_Swift', 'mp3/Taylor_Swift_-_Cleveland!__Official_Lyric_Video_(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Cleveland!</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Cruel_Summer', ' Taylor_Swift', 'mp3/Taylor_Swift_-_Cruel_Summer__Official_Audio_(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Cruel_Summer</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Daylight', ' Taylor_Swift', 'mp3/Taylor_Swift_-_Daylight__Official_Audio_(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Daylight</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Love_Story', ' Taylor_Swift', 'mp3/Taylor_Swift_-_Love_Story(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Love_Story</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Patient_Zero', ' Taylor_Swift', 'mp3/Taylor_Swift_-_Patient_Zero__Official_Lyric_Video_(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Patient_Zero</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Pink_Clouding', ' Taylor_Swift', 'mp3/Taylor_Swift_-_Pink_Clouding__Official_Lyric_Video_(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Pink_Clouding</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' The_Fate_of_Ophelia', ' Taylor_Swift', 'mp3/Taylor_Swift_-_The_Fate_of_Ophelia__Official_Music_Video_(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> The_Fate_of_Ophelia</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Willow', ' Taylor_Swift', 'mp3/Taylor_Swift_-_willow__Official_Music_Video_(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Willow</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' You_Belong_With_Me', ' Taylor_Swift', 'mp3/Taylor_Swift_-_You_Belong_With_Me(256k).mp3', 'Sphoto/4.jpg')">
-          <img src="Sphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> You_Belong_With_Me</div>
-          <div class="music-card-artist">Taylor_Swift</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မောင့်ချစ်သူ', ' Thar Thar', 'mp3/Thar_Thar_-_မောင့်ချစ်သူ__Mg_Chit_Thu_(0).mp3', 'Sphoto/46.jpg')">
-          <img src="Sphoto/46.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မောင့်ချစ်သူ</div>
-          <div class="music-card-artist">Thar Thar</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' THE_ANSWER', ' ChanMyae_MgCho', 'mp3/THE_ANSWER_-_ChanMyae_MgCho__OFFICIAL_MUSIC_VIDEO_(256k).mp3', 'Sphoto/47.jpg')">
-          <img src="Sphoto/47.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> THE_ANSWER</div>
-          <div class="music-card-artist">ChanMyae_MgCho</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Liar', ' Titans', 'mp3/𝐓𝐈𝐓𝐀𝐍𝐒_-_“𝐋𝐈𝐀𝐑”__[𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋_𝐌𝐕](256k).mp3', 'Sphoto/48.jpg')">
-          <img src="Sphoto/48.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Liar</div>
-          <div class="music-card-artist">Titans</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' What_is_Love', ' TWICE', 'mp3/TWICE__What_is_Love___M_V(256k).mp3', 'Sphoto/49.jpg')">
-          <img src="Sphoto/49.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> What_is_Love</div>
-          <div class="music-card-artist">TWICE</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Strategy', ' TWICE', 'mp3/TWICE_-_Strategy__Lyrics_(0).mp3', 'Sphoto/50.jpg')">
-          <img src="Sphoto/50.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Strategy</div>
-          <div class="music-card-artist">TWICE</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Until_I_Found_You', ' Stephen_Sanchez_ft._Em_Beihold', 'mp3/Until_I_Found_You_-Stephen_Sanchez_ft._Em_Beihold__Lyric_Video_(256k).mp3', 'Sphoto/51.jpg')">
-          <img src="Sphoto/51.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Until_I_Found_You</div>
-          <div class="music-card-artist">Stephen_Sanchez_ft._Em_Beihold</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Velocity', ' Sue', 'mp3/Velocity_-_Sue___Official_Music_Video__(0).mp3', 'Sphoto/52.jpg')">
-          <img src="Sphoto/52.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Velocity</div>
-          <div class="music-card-artist">Sue</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ပြန်လာမလားလို့မျှော်', ' Yadanar_My', 'mp3/Yadanar_My_-_ပြန်လာမလားလို့မျှော်___Official_Ai_Video__(0).mp3', 'Sphoto/53.jpg')">
-          <img src="Sphoto/53.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ပြန်လာမလားလို့မျှော်</div>
-          <div class="music-card-artist">Yadanar_My</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ကိုယ်မညာတော့ဘူး', ' N_ကိုင်ရာ', 'mp3/ကိုယ်မညာတော့ဘူး_-_N_ကိုင်ရာ_ကိုယ္မညာေတာ့ဘူး(256k).mp3', 'Sphoto/54.jpg')">
-          <img src="Sphoto/54.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ကိုယ်မညာတော့ဘူး</div>
-          <div class="music-card-artist">N_ကိုင်ရာ</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မောင့်ဆေးကျောင်းသူ', ' ခင်မောင်ထူး', 'mp3/ခင်မောင်ထူး_-_မောင့်ဆေးကျောင်းသူ__Lyric_Video_(0).mp3', 'Sphoto/55.jpg')">
-          <img src="Sphoto/55.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မောင့်ဆေးကျောင်းသူ</div>
-          <div class="music-card-artist">ခင်မောင်ထူး</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မလို့ပဲခေါ်', ' ချယ်ရီသင်း', 'mp3/ချယ်ရီသင်း_-_မလို့ပဲခေါ်__Cherry_Thin_(0).mp3', 'Sphoto/56.jpg')">
-          <img src="Sphoto/56.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မလို့ပဲခေါ်</div>
-          <div class="music-card-artist">ချယ်ရီသင်း</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဂီတာတီးပေါ့ကိုကိုရယ်', ' မေဆွိ', 'mp3/ဂီတာတီးပေါ့ကိုကိုရယ်_-_မေဆွိ__Lyrics_(256k).mp3', 'Sphoto/57.jpg')">
-          <img src="Sphoto/57.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဂီတာတီးပေါ့ကိုကိုရယ်</div>
-          <div class="music-card-artist">မေဆွိ</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မောင့်နောက်လိုက်ခဲ့မယ်', ' ဂေဂေး', 'mp3/ဂေဂေး_-_မောင့်နောက်လိုက်ခဲ့မယ်__Official_MV_(0).mp3', 'Sphoto/58.jpg')">
-          <img src="Sphoto/58.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မောင့်နောက်လိုက်ခဲ့မယ်</div>
-          <div class="music-card-artist">ဂေဂေး</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဆိုင်သူမသိတဲ့အချစ်', ' စံထိပ်ထားဦး', 'mp3/စံထိပ်ထားဦး_-_ဆိုင်သူမသိတဲ့အချစ်___Sine_Thu_Ma_Thi_Tae_A_Chit__Official_MV_(256k).mp3', 'Sphoto/59.jpg')">
-          <img src="Sphoto/59.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဆိုင်သူမသိတဲ့အချစ်</div>
-          <div class="music-card-artist">စံထိပ်ထားဦး</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' စွယ်တော်ရွက်', ' Irene', 'mp3/စွယ်တော်ရွက်_Official_Music_Video___Irene_Zin_Mar_Myint(256k).mp3', 'Sphoto/60.jpg')">
-          <img src="Sphoto/60.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> စွယ်တော်ရွက်</div>
-          <div class="music-card-artist">Irene</div>
-        </div>
-
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဆန်ရေ', ' ဘိုဖြူ', 'mp3/ဆန်ရေ_-_ဘိုဖြူ__Lyrics_vd_(256k).mp3', 'Sphoto/61.jpg')">
-          <img src="Sphoto/61.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဆန်ရေ</div>
-          <div class="music-card-artist">ဘိုဖြူ</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' သူငယ်ချင်း', ' ဉာဏ်လင်းအောင်', 'mp3/ဉာဏ်လင်းအောင်__Nyan_Lin_Aung___-_သူငယ်ချင်း(256k).mp3', 'Sphoto/62.jpg')">
-          <img src="Sphoto/62.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> သူငယ်ချင်း</div>
-          <div class="music-card-artist">ဉာဏ်လင်းအောင်</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' တုနှိုင်းမဲ့ရတနာ', ' ထူးအိမ်သင်', 'mp3/တုနှိုင်းမဲ့ရတနာ____ထူးအိမ်သင်___Lyric_Video__(256k).mp3', 'SSphoto/1.jpg')">
-          <img src="SSphoto/1.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> တုနှိုင်းမဲ့ရတနာ</div>
-          <div class="music-card-artist">ထူးအိမ်သင်</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဒီလိုဆိုမချစ်ဘူးကွယ်', ' ၀င်းဦး', 'mp3/ဒီလိုဆိုမချစ်ဘူးကွယ်_၀င်းဦး_Lyrics_256k.mp3', 'SSphoto/2.jpg')">
-          <img src="SSphoto/2.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဒီလိုဆိုမချစ်ဘူးကွယ်</div>
-          <div class="music-card-artist">၀င်းဦး</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဒေါသစိတ်လေး_၃၆၀မိနစ်', ' နွဲ့ယဉ်ဝင်း', 'mp3/နွဲ့ယဉ်ဝင်း_-_ဒေါသစိတ်လေး_၃၆၀မိနစ်_Lyrics(0).mp3', 'SSphoto/3.jpg')">
-          <img src="SSphoto/3.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဒေါသစိတ်လေး_၃၆၀မိနစ်</div>
-          <div class="music-card-artist">နွဲ့ယဉ်ဝင်း</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' နူးညံ့ခြင်း', ' Thint_Thaw_Thu', 'mp3/နူးညံ့ခြင်း__-_Thint_Thaw_Thu____Official_Music_Video__(256k).mp3', 'SSphoto/4.jpg')">
-          <img src="SSphoto/4.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> နူးညံ့ခြင်း</div>
-          <div class="music-card-artist">Thint_Thaw_Thu</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဖြေသိမ့်လိုက်', ' ဝိုင်ဝိုင်း', 'mp3/ဖြေသိမ့်လိုက်_-_ဝိုင်ဝိုင်း(256k).mp3', 'SSphoto/5.jpg')">
-          <img src="SSphoto/5.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဖြေသိမ့်လိုက်</div>
-          <div class="music-card-artist">ဝိုင်ဝိုင်း</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မှားချင်တယ်', ' ဖိုးကာ', 'mp3/ဖိုးကာ_-_မှားချင်တယ်_[Official_MV](256k).mp3', 'SSphoto/7.jpg')">
-          <img src="SSphoto/7.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မှားချင်တယ်</div>
-          <div class="music-card-artist">ဖိုးကာ</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' အပြုံးလှတဲ့ဆရာ', ' ဗညားဟန်', 'mp3/ဗညားဟန်_~_အပြုံးလှတဲ့ဆရာ(256k).mp3', 'SSphoto/8.jpg')">
-          <img src="SSphoto/8.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> အပြုံးလှတဲ့ဆရာ</div>
-          <div class="music-card-artist">ဗညားဟန်</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဘယ်ပန်းချီရေးလို့မမီ', ' အိုင်ရင်းဇင်မာမြင့်', 'mp3/ဘယ်ပန်းချီရေးလို့မမီ_-_အိုင်ရင်းဇင်မာမြင့်(0).mp3', 'SSphoto/9.jpg')">
-          <img src="SSphoto/9.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဘယ်ပန်းချီရေးလို့မမီ</div>
-          <div class="music-card-artist">အိုင်ရင်းဇင်မာမြင့်</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မင်းနဲ့', ' Nay Min Eain,Jewel', 'mp3/မင်းနဲ့__-_Nay_Min_Eain,_Jewel__Official_Music_Video_(256k).mp3', 'SSphoto/10.jpg')">
-          <img src="SSphoto/10.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မင်းနဲ့</div>
-          <div class="music-card-artist">Nay Min Eain,Jewel</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မျှော်တမ်း', ' Project_K_Feat._Cho_Pyone', 'mp3/မျှော်တမ်း___Myaw_Tann__Project_K_Feat._Cho_Pyone_(0).mp3', 'Sphoto/5.jpg')">
-          <img src="Sphoto/5.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မျှော်တမ်း</div>
-          <div class="music-card-artist">Project_K_Feat._Cho_Pyone</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မေမေနေကောင်းလား', ' ထူးအိမ်သင်', 'mp3/မေမေနေကောင်းလား_ထူးအိမ်သင်_(256k).mp3', 'SSphoto/11.jpg')">
-          <img src="SSphoto/11.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မေမေနေကောင်းလား</div>
-          <div class="music-card-artist">ထူးအိမ်သင်</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မောင်', ' နီနီခင်ဇော်', 'mp3/မောင်_-_နီနီခင်ဇော်__Mg_-_Ni_Ni_Khin_Zaw_(0).mp3', 'SSphoto/12.jpg')">
-          <img src="SSphoto/12.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မောင်</div>
-          <div class="music-card-artist">နီနီခင်ဇော်</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မောင့်အသက်ရှင်ဆေး', ' MTHRE', 'mp3/မောင့်အသက်ရှင်ဆေး.vocal-MTHRE(0).mp3', 'SSphoto/13.jpg')">
-          <img src="SSphoto/13.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မောင့်အသက်ရှင်ဆေး</div>
-          <div class="music-card-artist">MTHRE</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' နွံ', ' ယွန်းမြတ်သူ', 'mp3/ယွန်းမြတ်သူ_-_နွံ_[Official_MV](0).mp3', 'SSphoto/14.jpg')">
-          <img src="SSphoto/14.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> နွံ</div>
-          <div class="music-card-artist">ယွန်းမြတ်သူ</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ရှင်ကွဲ', ' သိပ္ပံထွန်း', 'mp3/ရှင်ကွဲ_သိပ္ပံထွန်း_lyrics(256k).mp3', 'Sphoto/23.jpg')">
-          <img src="Sphoto/23.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ရှင်ကွဲ</div>
-          <div class="music-card-artist">သိပ္ပံထွန်း</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' သူငယ်ချင်းထံသို့ပေးစာ', ' လွှမ်းပိုင်', 'mp3/လွှမ်းပိုင်_-_သူငယ်ချင်းထံသို့ပေးစာ__Official_MV_(256k).mp3', 'SSphoto/15.jpg')">
-          <img src="SSphoto/15.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> သူငယ်ချင်းထံသို့ပေးစာ</div>
-          <div class="music-card-artist">လွှမ်းပိုင်</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မောင်အဆင်ပြေရဲ့လား', ' လားဒင့်ထားရီ', 'mp3/လားဒင့်ထားရီ_-_မောင်အဆင်ပြေရဲ့လား__Official_MV_(0).mp3', 'SSphoto/16.jpg')">
-          <img src="SSphoto/16.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မောင်အဆင်ပြေရဲ့လား</div>
-          <div class="music-card-artist">လားဒင့်ထားရီ</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မတော်တဆ', ' ဝိုင်းစုခိုင်သိန်း', 'mp3/ဝိုင်းစုခိုင်သိန်း_-_မတော်တဆ_[Official_Music_Video](256k).mp3', 'SSphoto/17.jpg')">
-          <img src="SSphoto/17.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မတော်တဆ</div>
-          <div class="music-card-artist">ဝိုင်းစုခိုင်သိန်း</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ဝေး', ' William,_JAZ3', 'mp3/ဝေး___Way__William,_JAZ3__(0).mp3', 'SSphoto/18.jpg')">
-          <img src="SSphoto/18.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ဝေး</div>
-          <div class="music-card-artist">William,_JAZ3</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' သမီးရဲ့_မေမေ', ' Irene', 'mp3/သမီးရဲ့_မေမေ_-_My_dearest_Mom_-_Irene_Zin_Mar_Myint_-_Eng_Sub_Lyrics(256k).mp3', 'SSphoto/19.jpg')">
-          <img src="SSphoto/19.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> သမီးရဲ့_မေမေ</div>
-          <div class="music-card-artist">Irene</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' မောင့်အချစ်ဦး', ' သားသား,ထက်ယံ,နွဲ့ယဉ်ဝင်း', 'mp3/သားသား_,_ထက်ယံ_,_နွဲ့ယဉ်ဝင်း_-_မောင့်အချစ်ဦး(0).mp3', 'SSphoto/20.jpg')">
-          <img src="SSphoto/20.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> မောင့်အချစ်ဦး</div>
-          <div class="music-card-artist">သားသား,ထက်ယံ,နွဲ့ယဉ်ဝင်း</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' သီချင်းလေးအတိုင်း', ' May_Grace', 'mp3/သီချင်းလေးအတိုင်း_-_May_Grace_[_Official_Music_Video_](256k).mp3', 'SSphoto/21.jpg')">
-          <img src="SSphoto/21.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> သီချင်းလေးအတိုင်း</div>
-          <div class="music-card-artist">May_Grace</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' သူငယ်ချင်း', ' ဆောင်ဦးလှိုင်', 'mp3/သူငယ်ချင်း_-_ဆောင်ဦးလှိုင်(256k).mp3', 'SSphoto/22.jpg')">
-          <img src="SSphoto/22.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> သူငယ်ချင်း</div>
-          <div class="music-card-artist">ဆောင်ဦးလှိုင်</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' သူငယ်ချင်းများစွာ', ' Sai Sai', 'mp3/သူငယ်ချင်းများစွာ_-_sai_sai_kham_hlaing(256k).mp3', 'SSphoto/23.jpg')">
-          <img src="SSphoto/23.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> သူငယ်ချင်းများစွာ</div>
-          <div class="music-card-artist">Sai Sai</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' သဲနာရီ', ' A_YOON', 'mp3/သဲနာရီ-A_YOON___Official_Music_Video__(256k).mp3', 'SSphoto/24.jpg')">
-          <img src="SSphoto/24.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> သဲနာရီ</div>
-          <div class="music-card-artist">A_YOON</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' အဆုံးသတ်', ' Project_K', 'mp3/အဆုံးသတ်___A_Sone_Thet__Project_K_(0).mp3', 'Sphoto/5.jpg')">
-          <img src="Sphoto/5.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> အဆုံးသတ်</div>
-          <div class="music-card-artist">Project_K</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' အပေါ်ယံများ', ' Bunny_Phyoe,_Double_J', 'mp3/အပေါ်ယံများ_-_Bunny_Phyoe,_Double_J__Lyrics_Video_(256k).mp3', 'SSphoto/25.jpg')">
-          <img src="SSphoto/25.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> အပေါ်ယံများ</div>
-          <div class="music-card-artist">Bunny_Phyoe,_Double_J</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' အဖေနဲ့အမေနဲ့နေတဲ့အိမ်', ' လင်းလင်း', 'mp3/အဖေနဲ့အမေနဲ့နေတဲ့အိမ်-လင်းလင်း(256k).mp3', 'SSphoto/26.jpg')">
-          <img src="SSphoto/26.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> အဖေနဲ့အမေနဲ့နေတဲ့အိမ်</div>
-          <div class="music-card-artist">လင်းလင်း</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' အရာရာ', ' Gae_Gae', 'mp3/အရာရာ__A_Yar_Yar___Gae_Gae(256k).mp3', 'SSphoto/27.jpg')">
-          <img src="SSphoto/27.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> အရာရာ</div>
-          <div class="music-card-artist">Gae_Gae</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' အသီးတစ်ရာအညှာတစ်ခု', ' တွံတေးသိန်းတန်', 'mp3/အသီးတစ်ရာအညှာတစ်ခု_____တေးဆို_-_တွံတေးသိန်းတန်(0).mp3', 'SSphoto/28.jpg')">
-          <img src="SSphoto/28.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> အသီးတစ်ရာအညှာတစ်ခု</div>
-          <div class="music-card-artist">တွံတေးသိန်းတန်</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Home', ' Project_K', 'mp3/အိမ်_Home__-_Project_K__Official_Lyrics_Video_(0).mp3', 'Sphoto/5.jpg')">
-          <img src="Sphoto/5.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Home</div>
-          <div class="music-card-artist">Project_K</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' BIRDS_OF_A_FEATHER', ' Billie_Eilish', 'mp3/Billie_Eilish_-_BIRDS_OF_A_FEATHER__Official_Music_Video_(256k).mp3', 'SSphoto/29.jpg')">
-          <img src="SSphoto/29.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> BIRDS_OF_A_FEATHER</div>
-          <div class="music-card-artist">Billie_Eilish</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' AS_IF_IT_S_YOUR_LAST', ' BLACKPINK', 'mp3/BLACKPINK_-__마지막처럼__AS_IF_IT_S_YOUR_LAST___M_V(0).mp3', 'SSphoto/30.jpg')">
-          <img src="SSphoto/30.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> AS_IF_IT_S_YOUR_LAST</div>
-          <div class="music-card-artist">BLACKPINK</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Jump', ' BLACKPINK', 'mp3/BLACKPINK_-_Jump__Lyrics_(0).mp3', 'SSphoto/30.jpg')">
-          <img src="SSphoto/30.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Jump</div>
-          <div class="music-card-artist">BLACKPINK</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Kill_This_Love', ' BLACKPINK', 'mp3/BLACKPINK_-_Kill_This_Love__Lyrics_(0).mp3', 'SSphoto/30.jpg')">
-          <img src="SSphoto/30.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Kill_This_Love</div>
-          <div class="music-card-artist">BLACKPINK</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Love_To_Hate_Me', ' BLACKPINK', 'mp3/BLACKPINK_-_Love_To_Hate_Me__Lyrics_(0).mp3', 'SSphoto/30.jpg')">
-          <img src="SSphoto/30.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Love_To_Hate_Me</div>
-          <div class="music-card-artist">BLACKPINK</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' STAY', ' BLACKPINK', 'mp3/BLACKPINK_-_STAY__Lyrics_(0).mp3', 'SSphoto/30.jpg')">
-          <img src="SSphoto/30.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> STAY</div>
-          <div class="music-card-artist">BLACKPINK</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Just_The_Way_You_Are', ' Bruno_Mars', 'mp3/Bruno_Mars_-_Just_The_Way_You_Are__Official_Music_Video_(256k).mp3', 'SSphoto/31.jpg')">
-          <img src="SSphoto/31.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Just_The_Way_You_Are</div>
-          <div class="music-card-artist">Bruno_Mars</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' I_NEED_U', ' BTS', 'mp3/BTS__방탄소년단___I_NEED_U__Official_MV__Original_ver._(256k).mp3', 'SSphoto/32.jpg')">
-          <img src="SSphoto/32.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> I_NEED_U</div>
-          <div class="music-card-artist">BTS</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Life_Goes_On', ' BTS', 'mp3/BTS__방탄소년단___Life_Goes_On__Official_MV(256k).mp3', 'SSphoto/32.jpg')">
-          <img src="SSphoto/32.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Life_Goes_On</div>
-          <div class="music-card-artist">BTS</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Spring_Day', ' BTS', 'mp3/BTS__방탄소년단___봄날__Spring_Day___Official_MV(256k).mp3', 'SSphoto/32.jpg')">
-          <img src="SSphoto/32.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Spring_Day</div>
-          <div class="music-card-artist">BTS</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Dynamite', ' BTS', 'mp3/BTS_-_Dynamite__Lyrics_(0).mp3', 'SSphoto/32.jpg')">
-          <img src="SSphoto/32.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Dynamite</div>
-          <div class="music-card-artist">BTS</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' My_Energy', ' Bunny_Phyoe', 'mp3/Bunny_Phyoe_-_My_Energy_[Official_Music_Video](256k).mp3', 'SSphoto/33.jpg')">
-          <img src="SSphoto/33.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> My_Energy</div>
-          <div class="music-card-artist">Bunny_Phyoe</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' တဒင်္ဂ', ' Bunny_Phyoe,ft._Wyne_Su', 'mp3/Bunny_Phyoe_-_တဒင်္ဂ_ft._Wyne_Su_Khine_Thein_[Official_Lyric_Video](256k).mp3', 'SSphoto/34.jpg')">
-          <img src="SSphoto/34.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> တဒင်္ဂ</div>
-          <div class="music-card-artist">Bunny_Phyoe,ft._Wyne_Su</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' အစားထိုး', ' Bunny_Phyoe,ft._Myet_Myet', 'mp3/Bunny_Phyoe_-_အစားထိုး_ft._Myet_Myet_[Official_Lyric_Video](256k).mp3', 'SSphoto/35.jpg')">
-          <img src="SSphoto/35.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> အစားထိုး</div>
-          <div class="music-card-artist">Bunny_Phyoe,ft._Myet_Myet</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' GO!', ' CORTIS', 'mp3/CORTIS__코르티스___GO!__Official_MV(0).mp3', 'SSphoto/36.jpg')">
-          <img src="SSphoto/36.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> GO!</div>
-          <div class="music-card-artist">CORTIS</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Fashion', ' CORTIS', 'mp3/CORTIS_-_FaSHioN__Lyrics_(0).mp3', 'SSphoto/36.jpg')">
-          <img src="SSphoto/36.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Fashion</div>
-          <div class="music-card-artist">CORTIS</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' REDRED', ' CORTIS', 'mp3/CORTIS_-_REDRED__Lyrics_(0).mp3', 'SSphoto/36.jpg')">
-          <img src="SSphoto/36.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> REDRED</div>
-          <div class="music-card-artist">CORTIS</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' Crush', ' Shwe_Htoo', 'mp3/Crush_-_Shwe_Htoo_Lyrics_Video__Myanmar_Lyrics_Channel_(256k).mp3', 'SSphoto/37.jpg')">
-          <img src="SSphoto/37.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> Crush</div>
-          <div class="music-card-artist">Shwe_Htoo</div>
-        </div>
-        
-        <div class="music-card" onclick="handleItemSelection(this, 'music', ' ချယ်ရီ', ' Doublej', 'mp3/Doublej_-_Cherry_ချယ်ရီ___Official_Music_Video__(256k).mp3', 'SSphoto/38.jpg')">
-          <img src="SSphoto/38.jpg" class="music-card-cover" alt="Romantic Piano">
-          <div class="music-card-title"> ချယ်ရီ</div>
-          <div class="music-card-artist">Doublej</div>
-        </div>
-      </div>
-      <button class="scroll-btn right" onclick="scrollSlider('music-slider', 150)"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
-  </section>
-
   <!-- LIVE GIFT CARD / LAYOUT PREVIEW REMOVED -->
         <!-- SECTION 7: SIMPLE GIFT LINK -->
     <div id="gift-link-create-box" style="margin-top: 30px; padding: 22px; background: rgba(255, 255, 255, 0.72); border-radius: 16px; border: 1.5px dashed var(--card-border); text-align:center;">
@@ -4175,110 +3370,70 @@ footer .footer-bottom span:first-child{
       if(cardEl) cardEl.classList.add('active');
     }
 
-    // High-quality PNG capture shared by the Preview and Recipient save-photo actions.
-    // PNG is lossless; wait for image/font loading and render at up to 4x without
-    // exceeding a practical canvas edge size on mobile browsers.
-    async function renderHighQualityGiftCanvas(board) {
-      if (!board) throw new Error('Gift board not found');
-      if (typeof waitForReceiverImages === 'function') await waitForReceiverImages(board);
-      else {
-        const imgs = [...board.querySelectorAll('img')];
-        await Promise.all(imgs.map(img => img.complete ? Promise.resolve() : new Promise(resolve => {
-          img.addEventListener('load', resolve, { once: true });
-          img.addEventListener('error', resolve, { once: true });
-        })));
-        if (document.fonts?.ready) { try { await document.fonts.ready; } catch (_) {} }
-      }
-      const width = Math.max(board.scrollWidth || 0, board.offsetWidth || 0, 1);
-      const height = Math.max(board.scrollHeight || 0, board.offsetHeight || 0, 1);
-      const scale = Math.max(1, Math.min(4, 6000 / Math.max(width, height)));
-      const canvas = await html2canvas(board, {
-        scale,
-        useCORS: true,
-        allowTaint: false,
-        backgroundColor: null,
-        imageTimeout: 30000,
-        logging: false,
-        scrollX: 0,
-        scrollY: 0
-      });
-      const ctx = canvas.getContext('2d');
-      if (ctx) ctx.imageSmoothingQuality = 'high';
-      return canvas;
-    }
-
-    async function downloadAsImage() {
+    function downloadAsImage() {
       const board = document.getElementById('board');
-      try {
-        showSavePopup('📸 အရည်အသွေးမြင့် Photo ပြင်ဆင်နေပါတယ်…');
-        const canvas = await renderHighQualityGiftCanvas(board);
+      html2canvas(board, { scale: 4, useCORS: true, backgroundColor: null, imageTimeout: 20000, logging: false }).then(canvas => {
         const link = document.createElement('a');
         link.download = 'SecretBee-Gift-Card.png';
         link.href = canvas.toDataURL('image/png');
-        document.body.appendChild(link);
         link.click();
-        link.remove();
-        showSavePopup('Layout Preview Photo ကို အရည်အသွေးမြင့် PNG အဖြစ် သိမ်းပြီးပါပြီ။');
-      } catch (err) {
-        console.error('High-quality photo export failed:', err);
-        alert('Photo ကို အရည်အသွေးမြင့်အဖြစ် သိမ်းရာတွင် အဆင်မပြေပါ။ ပုံများ load ပြီးမှ ထပ်စမ်းကြည့်ပါ။');
-      }
+        showSavePopup('Layout Preview Photo ကို သိမ်းပြီးပါပြီ။');
+      });
     }
 
     async function downloadAsVideo() {
       const board = document.getElementById('board');
       const audioElement = document.getElementById('main-audio-player');
-      if (!audioElement || !audioElement.src) { alert("ကျေးဇူးပြု၍ Music တစ်ခုခု ရွေးချယ်ပေးပါဦး။"); return; }
-      if (!window.MediaRecorder || !board) { alert('ဒီ Browser မှာ Video Save မရနိုင်ပါ။ Chrome နဲ့ ထပ်စမ်းကြည့်ပါ။'); return; }
-      let audioContext = null, combinedStream = null;
+      
+      if (!audioElement.src) {
+        alert("ကျေးဇူးပြု၍  Music တစ်ခုခု ရွေးချယ်ပေးပါဦး။");
+        return;
+      }
+
+      showSavePopup('Video Rendering စတင်နေပါပြီ… ခဏစောင့်ပေးပါ။');
+
       try {
-        showSavePopup('🎵 သီချင်းတစ်ပုဒ်လုံးပါအောင် Video ပြုလုပ်နေပါတယ်… သီချင်းဆုံးတဲ့အထိ စောင့်ပေးပါ။');
-        if (typeof waitForReceiverImages === 'function') await waitForReceiverImages(board);
-        if (document.fonts?.ready) { try { await document.fonts.ready; } catch (_) {} }
-        const canvas = await html2canvas(board, { scale: 3, useCORS: true, allowTaint: false, backgroundColor: null, imageTimeout: 30000, logging: false });
-        const ctx = canvas.getContext('2d'); if (ctx) ctx.imageSmoothingQuality = 'high';
+        const canvas = await html2canvas(board, { scale: 4, useCORS: true, backgroundColor: null, imageTimeout: 20000, logging: false });
+        const ctx = canvas.getContext('2d'); if(ctx) ctx.imageSmoothingQuality = 'high';
         const canvasStream = canvas.captureStream(30);
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const source = audioContext.createMediaElementSource(audioElement);
         const destination = audioContext.createMediaStreamDestination();
-        source.connect(destination); source.connect(audioContext.destination);
-        try { await audioContext.resume(); } catch (_) {}
-        combinedStream = new MediaStream([...canvasStream.getVideoTracks(), ...destination.stream.getAudioTracks()]);
-        const candidates = ['video/mp4;codecs=avc1.42E01E,mp4a.40.2', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm'];
-        const mime = candidates.find(type => MediaRecorder.isTypeSupported(type));
-        if (!mime) throw new Error('This browser does not support video recording');
+        source.connect(destination);
+        source.connect(audioContext.destination);
+
+        const combinedStream = new MediaStream([
+          ...canvasStream.getVideoTracks(),
+          ...destination.stream.getAudioTracks()
+        ]);
+
+        const mediaRecorder = new MediaRecorder(combinedStream, { mimeType: 'video/webm;codecs=vp9,opus', videoBitsPerSecond: 10000000, audioBitsPerSecond: 192000 });
         const chunks = [];
-        const recorder = new MediaRecorder(combinedStream, { mimeType: mime, videoBitsPerSecond: 10000000, audioBitsPerSecond: 192000 });
-        recorder.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
-        const stopped = new Promise((resolve, reject) => { recorder.onstop = resolve; recorder.onerror = e => reject(e.error || e); });
-        if (!Number.isFinite(audioElement.duration) || audioElement.duration <= 0) {
-          await new Promise((resolve, reject) => {
-            const cleanup = () => { audioElement.removeEventListener('loadedmetadata', done); audioElement.removeEventListener('error', fail); };
-            const done = () => { cleanup(); resolve(); }, fail = () => { cleanup(); reject(new Error('Music could not be loaded')); };
-            audioElement.addEventListener('loadedmetadata', done, { once: true }); audioElement.addEventListener('error', fail, { once: true }); audioElement.load();
-          });
-        }
-        audioElement.pause(); audioElement.currentTime = 0;
-        await new Promise(resolve => { if (audioElement.readyState >= 3) return resolve(); audioElement.addEventListener('canplay', resolve, { once: true }); setTimeout(resolve, 10000); });
-        const playbackEnded = new Promise(resolve => audioElement.addEventListener('ended', resolve, { once: true }));
-        recorder.start(1000);
-        await audioElement.play();
-        // Record until the complete song ends; no fixed 5-second cutoff.
-        await playbackEnded;
-        await new Promise(resolve => setTimeout(resolve, 300));
-        if (recorder.state !== 'inactive') recorder.stop();
-        await stopped;
-        const isMp4 = mime.startsWith('video/mp4'), blob = new Blob(chunks, { type: mime });
-        const url = URL.createObjectURL(blob), a = document.createElement('a');
-        a.href = url; a.download = isMp4 ? 'Butterfly-Gift-Card.mp4' : 'Butterfly-Gift-Card.webm';
-        document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 60000);
-        showSavePopup(isMp4 ? 'သီချင်းတစ်ပုဒ်လုံးပါတဲ့ MP4 ကို သိမ်းပြီးပါပြီ။' : 'သီချင်းတစ်ပုဒ်လုံးပါတဲ့ Video ကို WebM အဖြစ် သိမ်းပြီးပါပြီ။');
+
+        mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(chunks, { type: 'video/mp4' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'SecretBee-Gift-Card.mp4';
+          a.click();
+          showSavePopup('Layout Preview Video ကို သိမ်းပြီးပါပြီ။');
+        };
+
+        audioElement.currentTime = 0;
+        audioElement.play();
+        mediaRecorder.start();
+
+        setTimeout(() => {
+          mediaRecorder.stop();
+          audioElement.pause();
+        }, 5000);
+
       } catch (err) {
-        console.error('Video save failed:', err);
-        alert('Video Save မအောင်မြင်ပါ။ သီချင်းကို အရင်ဖွင့်ပြီးမှ ထပ်စမ်းကြည့်ပါ။');
-      } finally {
-        if (combinedStream) combinedStream.getTracks().forEach(track => track.stop());
-        if (audioContext) { try { await audioContext.close(); } catch (_) {} }
+        console.error(err);
+        alert("Video Render လုပ်ရာတွင် အဆင်မပြေမှုရှိပါသဖြင့် Save as Photo အား အရင်စမ်းသုံးပေးပါ။");
       }
     }
 
@@ -5048,35 +4203,14 @@ function initReceiverScratch(){
             </div>
           </section>
 
-          <!-- 5. Music -->
-          <section class="receiver-gift-item" data-save-name="05-Music">
-            <div class="receiver-gift-number">05</div>
-            <h3><i class="fa-solid fa-music"></i> A Song For You</h3>
-            <div class="receiver-simple-card">
-              ${music ? `
-              <div class="receiver-music-vinyl-card" id="receiver-music-vinyl-card">
-                <div class="receiver-vinyl-wrapper">
-                  <div class="receiver-vinyl-record" id="receiver-disc">
-                    <div class="receiver-vinyl-label" style="background-image:url('${escapeHtml(g.songCover||'')}')">
-                      <div class="receiver-vinyl-hole"></div>
-                    </div>
-                  </div>
-                </div>
-                <strong class="receiver-music-title">${escapeHtml(g.songTitle||'Selected Music')}</strong>
-                <span class="receiver-music-artist">${escapeHtml(g.songArtist||'')}</span>
-                <button type="button" class="receiver-play receiver-play-large" id="receiver-music-btn" onclick="toggleReceiverMusic()"><i class="fa-solid fa-play"></i></button>
-                <audio id="receiver-audio" preload="metadata" src="${safeMusic}" onended="setReceiverMusicUI(false)"></audio>
-              </div>` : '<div class="receiver-empty">No music was selected.</div>'}
-            </div>
-          </section>
+
         </div>
 
         <div class="receiver-final-save">
-          <button type="button" class="receiver-save-all-btn" id="receiver-save-all-btn" onclick="saveReceiverFiveGifts()">
-            <i class="fa-solid fa-download"></i> Save All 5 Gifts
+          <button type="button" class="receiver-save-all-btn" id="receiver-save-all-btn" onclick="saveReceiverFourGifts()">
+            <i class="fa-solid fa-download"></i> Save All 4 Gifts
           </button>
           <div id="receiver-save-status" class="receiver-save-status"></div>
-          <p class="receiver-music-save-note">🎵 <strong>သီချင်းအပြည့်အစုံပါအောင် သိမ်းရန်</strong> — Save လုပ်ပြီးနောက် သီချင်းဆုံးသည်အထိ စောင့်ပေးပါနော်။ သိမ်းနေစဉ် ဒီစာမျက်နှာကို မပိတ်ပါနှင့်။ သီချင်းကြာချိန်ပေါ်မူတည်ပြီး အချိန်ယူနိုင်ပါတယ်။ 💗</p>
         </div>
 
         <div class="butterfly-social-links receiver-social-links">
@@ -5215,63 +4349,16 @@ function initReceiverScratch(){
         captureAudio.addEventListener('loadedmetadata',done,{once:true});
         setTimeout(done,5000);
       });
-    async function downloadAsVideo() {
-      const board = document.getElementById('board');
-      const audioElement = document.getElementById('main-audio-player');
-      if (!audioElement || !audioElement.src) { alert("ကျေးဇူးပြု၍ Music တစ်ခုခု ရွေးချယ်ပေးပါဦး။"); return; }
-      if (!window.MediaRecorder || !board) { alert('ဒီ Browser မှာ Video Save မရနိုင်ပါ။ Chrome နဲ့ ထပ်စမ်းကြည့်ပါ။'); return; }
-      let audioContext = null, combinedStream = null;
-      try {
-        showSavePopup('🎵 သီချင်းတစ်ပုဒ်လုံးပါအောင် Video ပြုလုပ်နေပါတယ်… သီချင်းဆုံးတဲ့အထိ စောင့်ပေးပါ။');
-        if (typeof waitForReceiverImages === 'function') await waitForReceiverImages(board);
-        if (document.fonts?.ready) { try { await document.fonts.ready; } catch (_) {} }
-        const canvas = await html2canvas(board, { scale: 3, useCORS: true, allowTaint: false, backgroundColor: null, imageTimeout: 30000, logging: false });
-        const ctx = canvas.getContext('2d'); if (ctx) ctx.imageSmoothingQuality = 'high';
-        const canvasStream = canvas.captureStream(30);
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const source = audioContext.createMediaElementSource(audioElement);
-        const destination = audioContext.createMediaStreamDestination();
-        source.connect(destination); source.connect(audioContext.destination);
-        try { await audioContext.resume(); } catch (_) {}
-        combinedStream = new MediaStream([...canvasStream.getVideoTracks(), ...destination.stream.getAudioTracks()]);
-        const candidates = ['video/mp4;codecs=avc1.42E01E,mp4a.40.2', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm'];
-        const mime = candidates.find(type => MediaRecorder.isTypeSupported(type));
-        if (!mime) throw new Error('This browser does not support video recording');
-        const chunks = [];
-        const recorder = new MediaRecorder(combinedStream, { mimeType: mime, videoBitsPerSecond: 10000000, audioBitsPerSecond: 192000 });
-        recorder.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
-        const stopped = new Promise((resolve, reject) => { recorder.onstop = resolve; recorder.onerror = e => reject(e.error || e); });
-        if (!Number.isFinite(audioElement.duration) || audioElement.duration <= 0) {
-          await new Promise((resolve, reject) => {
-            const cleanup = () => { audioElement.removeEventListener('loadedmetadata', done); audioElement.removeEventListener('error', fail); };
-            const done = () => { cleanup(); resolve(); }, fail = () => { cleanup(); reject(new Error('Music could not be loaded')); };
-            audioElement.addEventListener('loadedmetadata', done, { once: true }); audioElement.addEventListener('error', fail, { once: true }); audioElement.load();
-          });
-        }
-        audioElement.pause(); audioElement.currentTime = 0;
-        await new Promise(resolve => { if (audioElement.readyState >= 3) return resolve(); audioElement.addEventListener('canplay', resolve, { once: true }); setTimeout(resolve, 10000); });
-        const playbackEnded = new Promise(resolve => audioElement.addEventListener('ended', resolve, { once: true }));
-        recorder.start(1000);
-        await audioElement.play();
-        // Record until the complete song ends; no fixed 5-second cutoff.
-        await playbackEnded;
-        await new Promise(resolve => setTimeout(resolve, 300));
-        if (recorder.state !== 'inactive') recorder.stop();
-        await stopped;
-        const isMp4 = mime.startsWith('video/mp4'), blob = new Blob(chunks, { type: mime });
-        const url = URL.createObjectURL(blob), a = document.createElement('a');
-        a.href = url; a.download = isMp4 ? 'Butterfly-Gift-Card.mp4' : 'Butterfly-Gift-Card.webm';
-        document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 60000);
-        showSavePopup(isMp4 ? 'သီချင်းတစ်ပုဒ်လုံးပါတဲ့ MP4 ကို သိမ်းပြီးပါပြီ။' : 'သီချင်းတစ်ပုဒ်လုံးပါတဲ့ Video ကို WebM အဖြစ် သိမ်းပြီးပါပြီ။');
-      } catch (err) {
-        console.error('Video save failed:', err);
-        alert('Video Save မအောင်မြင်ပါ။ သီချင်းကို အရင်ဖွင့်ပြီးမှ ထပ်စမ်းကြည့်ပါ။');
-      } finally {
-        if (combinedStream) combinedStream.getTracks().forEach(track => track.stop());
-        if (audioContext) { try { await audioContext.close(); } catch (_) {} }
-      }
-    }
+      let durationMs=isFinite(captureAudio.duration)&&captureAudio.duration>0 ? Math.ceil(captureAudio.duration*1000)+250 : 8000;
+      durationMs=Math.max(1500,Math.min(durationMs,120000));
 
+      captureAudio.currentTime=0;
+      recorder.start(250);
+      try{await captureAudio.play();}catch(e){console.warn('Audio playback start failed:',e);}
+      await new Promise(r=>setTimeout(r,durationMs));
+      captureAudio.pause();
+      recorder.stop();
+      await stopped;
 
       combinedStream.getTracks().forEach(t=>t.stop());
       if(audioContext){try{await audioContext.close();}catch(e){}}
@@ -5284,13 +4371,13 @@ function initReceiverScratch(){
       return await convertWebMToMP4(recordedBlob,p=>onReceiverSaveStatus(`🎬 MP4 ပြောင်းနေပါတယ်… ${p}%`));
     }
 
-    async function saveReceiverFiveGifts(){
+    async function saveReceiverFourGifts(){
       const list=document.getElementById('receiver-gifts-list');
       const btn=document.getElementById('receiver-save-all-btn');
       const status=document.getElementById('receiver-save-status');
       if(!list)return;
       const items=[...list.querySelectorAll('.receiver-gift-item')];
-      if(items.length<5)return;
+      if(items.length<4)return;
 
       // Use a fresh filename for every Save click. This prevents Android/Chrome
       // from showing "Download file again?" when the same gift was saved before.
@@ -5298,32 +4385,27 @@ function initReceiverScratch(){
       const pad=n=>String(n).padStart(2,'0');
       const saveStamp=`${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
 
-      if(btn){btn.disabled=true;btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Saving 1 / 5…';}
+      if(btn){btn.disabled=true;btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Saving 1 / 4…';}
       if(status)status.textContent='တစ်ခုချင်း သိမ်းနေပါတယ်…';
 
       try{
         await waitForReceiverImages(list);
         for(let i=0;i<4;i++){
-          if(btn)btn.innerHTML=`<i class="fa-solid fa-spinner fa-spin"></i> Saving ${i+1} / 5…`;
+          if(btn)btn.innerHTML=`<i class="fa-solid fa-spinner fa-spin"></i> Saving ${i+1} / 4…`;
           const canvas=await html2canvas(items[i],{scale:3,useCORS:true,backgroundColor:'#ffffff',imageTimeout:20000,logging:false});
           const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
           downloadBlobFile(blob,`Butterfly-Gift-${items[i].dataset.saveName||String(i+1).padStart(2,'0')}-${saveStamp}.png`);
           await new Promise(resolve=>setTimeout(resolve,450));
         }
 
-        if(btn)btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Saving 5 / 5…';
-        if(status)status.textContent='🎵 ရွေးထားတဲ့သီချင်းနဲ့ MP4 ပြုလုပ်နေပါတယ်…';
-        const musicBlob=await saveReceiverMusicMP4(items[4]);
-        downloadBlobFile(musicBlob,`Butterfly-Gift-05-Music-${saveStamp}.mp4`);
-
-        if(status)status.textContent='✅ Gift ၄ ခု PNG + Music ၁ ခု MP4 အဖြစ် သိမ်းပြီးပါပြီ။';
-        showSavePopup('✅ Gift ၅ ခုလုံး သိမ်းပြီးပါပြီ — Music က MP4 ပါ။');
+        if(status)status.textContent='✅ Gift ၄ ခုလုံး PNG အဖြစ် သိမ်းပြီးပါပြီ။';
+        showSavePopup('✅ Gift ၄ ခုလုံး သိမ်းပြီးပါပြီ။');
       }catch(err){
         console.error(err);
         if(status)status.textContent='';
-        alert('Save မအောင်မြင်ပါ။ Music MP4 ပြုလုပ်ဖို့ Internet ချိတ်ထားပေးပြီး Browser download permission ကို Allow လုပ်ပေးပါ။');
+        alert('Save မအောင်မြင်ပါ။ Browser download permission ကို Allow လုပ်ပေးပါ။');
       }finally{
-        if(btn){btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-download"></i> Save All 5 Gifts';}
+        if(btn){btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-download"></i> Save All 4 Gifts';}
       }
     }
 
@@ -5390,7 +4472,8 @@ function initReceiverScratch(){
       if(!board){ alert('Gift ကို အရင် Unlock လုပ်ပါ။'); return; }
       setReceiverSaveStatus('📸 Photo ပြင်ဆင်နေပါတယ်…');
       try{
-        const canvas=await renderHighQualityGiftCanvas(board);
+        await waitForReceiverImages(board);
+        const canvas=await html2canvas(board,{scale:4,useCORS:true,backgroundColor:null,imageTimeout:20000,logging:false});
         const a=document.createElement('a');
         a.href=canvas.toDataURL('image/png');
         a.download='SecretBee-Gift.png';
@@ -6246,18 +5329,6 @@ button,.btn,.btn-action,.play-btn,.scroll-btn,.image-option-card,.music-card{tou
 })();
 </script>
 
-
-<style id="receiver-music-save-note-style">
-.receiver-music-save-note{
-  max-width:560px;margin:10px auto 0;padding:11px 14px;
-  border:1px solid rgba(124,107,232,.18);border-radius:13px;
-  background:rgba(124,107,232,.055);color:var(--text-muted,#6f6b83);
-  font-size:.78rem;line-height:1.65;text-align:center;
-}
-.receiver-music-save-note strong{color:var(--primary-color,#7C6BE8);font-weight:700;}
-@media(max-width:480px){.receiver-music-save-note{font-size:.74rem;padding:10px 11px;}}
-</style>
-
 </body>
 </html>
 
@@ -6579,30 +5650,6 @@ button,.btn,.btn-action,.play-btn,.scroll-btn,.image-option-card,.music-card{tou
   .navbar .mobile-menu-panel a:hover{
     background:#28545D !important;
     color:#fff !important;
-  }
-}
-</style>
-
-<style id="match-preview-letter-to-live-design">
-/* Preview/recipient letter: match the live letter design's readable, smaller text size. */
-.receiver-letter-card .receiver-letter,
-.receiver-letter-card .receiver-letter-large {
-  font-size: clamp(.78rem, 2.05vw, 1.3rem) !important;
-  line-height: 1.45 !important;
-  overflow-wrap: anywhere;
-}
-@media (max-width: 575px) {
-  .receiver-letter-card .receiver-letter,
-  .receiver-letter-card .receiver-letter-large {
-    font-size: clamp(.70rem, 2.55vw, .92rem) !important;
-    line-height: 1.42 !important;
-  }
-}
-@media (min-width: 576px) and (max-width: 1024px) {
-  .receiver-letter-card .receiver-letter,
-  .receiver-letter-card .receiver-letter-large {
-    font-size: clamp(.86rem, 1.95vw, 1.2rem) !important;
-    line-height: 1.45 !important;
   }
 }
 </style>
