@@ -4224,7 +4224,7 @@ function initReceiverScratch(){
         </div>
 
         <div class="receiver-final-save">
-          <button type="button" class="receiver-save-all-btn" id="receiver-save-all-btn" onclick="saveReceiverFourGifts()">
+          <button type="button" class="receiver-save-all-btn" id="receiver-save-all-btn" onclick="saveReceiverThreeGifts()">
             <i class="fa-solid fa-download"></i> Save All 3 Gifts
           </button>
           <div id="receiver-save-status" class="receiver-save-status"></div>
@@ -4388,13 +4388,13 @@ function initReceiverScratch(){
       return await convertWebMToMP4(recordedBlob,p=>onReceiverSaveStatus(`🎬 MP4 ပြောင်းနေပါတယ်… ${p}%`));
     }
 
-    async function saveReceiverFourGifts(){
+    async function saveReceiverThreeGifts(){
       const list=document.getElementById('receiver-gifts-list');
       const btn=document.getElementById('receiver-save-all-btn');
       const status=document.getElementById('receiver-save-status');
       if(!list)return;
       const items=[...list.querySelectorAll('.receiver-gift-item')];
-      if(items.length<4)return;
+      if(items.length===0){ alert('သိမ်းရန် Gift မတွေ့ပါ။'); return; }
 
       // Use a fresh filename for every Save click. This prevents Android/Chrome
       // from showing "Download file again?" when the same gift was saved before.
@@ -4402,21 +4402,21 @@ function initReceiverScratch(){
       const pad=n=>String(n).padStart(2,'0');
       const saveStamp=`${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
 
-      if(btn){btn.disabled=true;btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Saving 1 / 4…';}
+      if(btn){btn.disabled=true;btn.innerHTML=`<i class="fa-solid fa-spinner fa-spin"></i> Saving 1 / ${items.length}…`;}
       if(status)status.textContent='တစ်ခုချင်း သိမ်းနေပါတယ်…';
 
       try{
         await waitForReceiverImages(list);
-        for(let i=0;i<4;i++){
-          if(btn)btn.innerHTML=`<i class="fa-solid fa-spinner fa-spin"></i> Saving ${i+1} / 4…`;
+        for(let i=0;i<items.length;i++){
+          if(btn)btn.innerHTML=`<i class="fa-solid fa-spinner fa-spin"></i> Saving ${i+1} / ${items.length}…`;
           const canvas=await html2canvas(items[i],{scale:3,useCORS:true,backgroundColor:'#ffffff',imageTimeout:20000,logging:false});
           const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
           downloadBlobFile(blob,`Butterfly-Gift-${items[i].dataset.saveName||String(i+1).padStart(2,'0')}-${saveStamp}.png`);
           await new Promise(resolve=>setTimeout(resolve,450));
         }
 
-        if(status)status.textContent='✅ Gift ၄ ခုလုံး PNG အဖြစ် သိမ်းပြီးပါပြီ။';
-        showSavePopup('✅ Gift ၄ ခုလုံး သိမ်းပြီးပါပြီ။');
+        if(status)status.textContent=`✅ Gift ${items.length} ခုလုံး PNG အဖြစ် သိမ်းပြီးပါပြီ။`;
+        showSavePopup(`✅ Gift ${items.length} ခုလုံး သိမ်းပြီးပါပြီ။`);
       }catch(err){
         console.error(err);
         if(status)status.textContent='';
