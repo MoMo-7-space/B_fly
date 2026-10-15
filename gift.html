@@ -2965,32 +2965,6 @@ footer .footer-bottom span:first-child{
     </div>
   </section>
 
-  <!-- SECTION 4: CUSTOM PHOTO UPLOAD -->
-  <section class="section-card">
-    <div class="section-title"><i class="fa-solid fa-image"></i>A Memory To Keep</div>
-    
-    <div style="text-align:center;">
-      <label class="file-input-btn">
-        <i class="fa-solid fa-cloud-arrow-up"></i> Add A Memory
-        <input type="file" id="user-photo-input" accept="image/*" onchange="previewUserPhoto(event)">
-      </label>
-      
-      <div class="form-group" style="text-align:left; margin-top:15px;">
-        <label>Photo Caption:</label>
-        <input type="text" id="user-caption-input" placeholder="Happy Memories..." oninput="updateUserCaption()">
-      </div>
-    </div>
-
-    <div class="custom-preview-card">
-      <div id="upload-placeholder">
-        <i class="fa-regular fa-image" style="font-size:2.5rem; color:var(--text-muted); margin-bottom:8px;"></i>
-        <p style="color:var(--text-muted); font-size:0.85rem;">No Photo Uploaded</p>
-      </div>
-      <img id="user-live-img" src="" alt="Live Preview">
-      <div id="user-live-caption" style="margin-top:10px; font-weight:600; color:var(--primary-color);"></div>
-    </div>
-  </section>
-
   <!-- LIVE GIFT CARD / LAYOUT PREVIEW REMOVED -->
         <!-- SECTION 7: SIMPLE GIFT LINK -->
     <div id="gift-link-create-box" style="margin-top: 30px; padding: 22px; background: rgba(255, 255, 255, 0.72); border-radius: 16px; border: 1.5px dashed var(--card-border); text-align:center;">
@@ -4244,24 +4218,14 @@ function initReceiverScratch(){
             </div>
           </section>
 
-          <!-- 4. Photo -->
-          <section class="receiver-gift-item" data-save-name="04-Photo">
-            <div class="receiver-gift-number">04</div>
-            <h3><i class="fa-solid fa-image"></i> A Memory To Keep</h3>
-            <div class="receiver-simple-card receiver-photo-save-card">
-              <div class="receiver-photo-large">
-                <img src="${safePhoto}" alt="Memory photo">
-                <div>${escapeHtml(g.caption||'Happy Memories')}</div>
-              </div>
-            </div>
-          </section>
+
 
 
         </div>
 
         <div class="receiver-final-save">
           <button type="button" class="receiver-save-all-btn" id="receiver-save-all-btn" onclick="saveReceiverFourGifts()">
-            <i class="fa-solid fa-download"></i> Save All 4 Gifts
+            <i class="fa-solid fa-download"></i> Save All 3 Gifts
           </button>
           <div id="receiver-save-status" class="receiver-save-status"></div>
         </div>
@@ -4458,7 +4422,7 @@ function initReceiverScratch(){
         if(status)status.textContent='';
         alert('Save မအောင်မြင်ပါ။ Browser download permission ကို Allow လုပ်ပေးပါ။');
       }finally{
-        if(btn){btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-download"></i> Save All 4 Gifts';}
+        if(btn){btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-download"></i> Save All 3 Gifts';}
       }
     }
 
@@ -5715,7 +5679,7 @@ button,.btn,.btn-action,.play-btn,.scroll-btn,.image-option-card,.music-card{tou
     width:100% !important;
     min-width:0 !important;
     box-sizing:border-box !important;
-    padding:22px 14px 24px !iconsmportant;
+    padding:22px 14px 24px !important;
     border:0 !important;
     border-radius:0 0 18px 18px !important;
     background:rgba(255,250,247,.97) !important;
