@@ -1743,6 +1743,22 @@ footer .footer-bottom span:first-child{
 }
 </style>
 
+
+<style id="preview-letter-font-size-only">
+/* Target the actual Preview gift-card board; keep all other sections unchanged. */
+.showcase-board .letter-content,
+.showcase-board .preview-text {
+  font-size: .42rem !important;
+  line-height: 1.22 !important;
+}
+@media (max-width: 575px) {
+  .showcase-board .letter-content,
+  .showcase-board .preview-text {
+    font-size: .34rem !important;
+    line-height: 1.18 !important;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -3388,7 +3404,7 @@ footer .footer-bottom span:first-child{
 
     function downloadAsImage() {
       const board = document.getElementById('board');
-      html2canvas(board, { scale: 4, useCORS: true, backgroundColor: null, imageTimeout: 20000, logging: false }).then(canvas => {
+      html2canvas(board, { scale: 5, useCORS: true, backgroundColor: null, imageTimeout: 20000, logging: false }).then(canvas => {
         const link = document.createElement('a');
         link.download = 'SecretBee-Gift-Card.png';
         link.href = canvas.toDataURL('image/png');
@@ -3409,7 +3425,7 @@ footer .footer-bottom span:first-child{
       showSavePopup('Video Rendering စတင်နေပါပြီ… ခဏစောင့်ပေးပါ။');
 
       try {
-        const canvas = await html2canvas(board, { scale: 4, useCORS: true, backgroundColor: null, imageTimeout: 20000, logging: false });
+        const canvas = await html2canvas(board, { scale: 5, useCORS: true, backgroundColor: null, imageTimeout: 20000, logging: false });
         const ctx = canvas.getContext('2d'); if(ctx) ctx.imageSmoothingQuality = 'high';
         const canvasStream = canvas.captureStream(30);
 
@@ -3566,7 +3582,7 @@ footer .footer-bottom span:first-child{
       box.style.display='block';
       box.innerHTML = `
         <div style="font-size:1.45rem;margin-bottom:6px"><i class="fa-solid fa-gift"></i></div>
-        <b style="color:var(--primary-color);font-size:1rem">Gift Link ရပါပြီရှင်! Auto Copied!!!</b>
+        <b style="color:var(--primary-color);font-size:1rem">Gift Link ရပါပြီရှင်!</b>
         <p style="color:var(--text-muted);font-size:.82rem;margin:7px 0 12px">
           အောက်က Link ကို Copy လုပ်ပြီး ကိုယ်တန်ဖိုးထားရသူဆီ ခံစားချက်လေး မျှဝေပေးလိုက်ပါ။
         </p>
@@ -4510,7 +4526,7 @@ function initReceiverScratch(){
       setReceiverSaveStatus('📸 Photo ပြင်ဆင်နေပါတယ်…');
       try{
         await waitForReceiverImages(board);
-        const canvas=await html2canvas(board,{scale:4,useCORS:true,backgroundColor:null,imageTimeout:20000,logging:false});
+        const canvas=await html2canvas(board,{scale:5,useCORS:true,backgroundColor:null,imageTimeout:20000,logging:false});
         const a=document.createElement('a');
         a.href=canvas.toDataURL('image/png');
         a.download='SecretBee-Gift.png';
@@ -4530,7 +4546,7 @@ function initReceiverScratch(){
       setReceiverSaveStatus('🎬 Video + ရွေးထားတဲ့သီချင်းကို ပြင်ဆင်နေပါတယ်…');
       try{
         await waitForReceiverImages(board);
-        const canvas=await html2canvas(board,{scale:4,useCORS:true,backgroundColor:null,imageTimeout:20000,logging:false});
+        const canvas=await html2canvas(board,{scale:5,useCORS:true,backgroundColor:null,imageTimeout:20000,logging:false});
         const ctx=canvas.getContext('2d'); if(ctx) ctx.imageSmoothingQuality='high';
         const canvasStream=canvas.captureStream(30);
         let combinedStream=new MediaStream([...canvasStream.getVideoTracks()]);
@@ -5387,6 +5403,22 @@ button,.btn,.btn-action,.play-btn,.scroll-btn,.image-option-card,.music-card{tou
 })();
 </script>
 
+
+<style id="actual-preview-popup-letter-font-fix">
+/* The Preview popup renders its letter with .receiver-letter-large, not .letter-content.
+   Change only that letter text; leave the editor and all other gift sections alone. */
+#recipient-card-shell .receiver-gift-item[data-save-name="01-Letter"] .receiver-letter-card .receiver-letter.receiver-letter-large {
+  font-size: 0.48rem !important;
+  line-height: 1.22 !important;
+  overflow-wrap: anywhere !important;
+}
+@media (max-width: 575px) {
+  #recipient-card-shell .receiver-gift-item[data-save-name="01-Letter"] .receiver-letter-card .receiver-letter.receiver-letter-large {
+    font-size: 0.40rem !important;
+    line-height: 1.18 !important;
+  }
+}
+</style>
 </body>
 </html>
 
@@ -5683,7 +5715,7 @@ button,.btn,.btn-action,.play-btn,.scroll-btn,.image-option-card,.music-card{tou
     width:100% !important;
     min-width:0 !important;
     box-sizing:border-box !important;
-    padding:22px 14px 24px !important;
+    padding:22px 14px 24px !iconsmportant;
     border:0 !important;
     border-radius:0 0 18px 18px !important;
     background:rgba(255,250,247,.97) !important;
